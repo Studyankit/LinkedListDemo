@@ -26,8 +26,22 @@ namespace StackandQueues
                 //node.next = head;
 
             }
+        }
+            public void Display()
+            {
+                Node temp = this.head;
+                if (temp == null)
+                {
+                    Console.WriteLine("Queue is empty");
+                    return;
 
+                }
+                while (temp != null)
+                {
+                    Console.Write(temp.data + " ");
+                    temp = temp.next;
+                }
+            }
         }
     }
-}
 
