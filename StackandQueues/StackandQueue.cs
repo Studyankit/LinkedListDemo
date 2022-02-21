@@ -8,50 +8,26 @@ namespace StackandQueues
 {
     class StackandQueue
     {
-        private Node top;
-        public StackandQueue()
+        Node head = null;
+
+        internal void Enqueue(int data)
         {
-            this.top = null;
-        }
-        public void Push(int value)
-        {
-            Node node = new Node(value);
-            if (this.top == null)
-                node.next = null;
+            Node node = new Node(data);
+            if (head == null)
+                head = node;
             else
-                node.next = this.top;
-            this.top = node;
-            Console.WriteLine("{0} pushed to stack ", value);
-        }
-        internal void Peek()
-        {
-            if (this.top == null)
             {
-                Console.WriteLine("Stack is empty");
-                return;
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
+                //node.next = head;
+
             }
-            Console.WriteLine("{0} is in the top of the stack ", this.top.data);
-        }
-        internal void Pop()
-        {
-            if (this.top == null)
-            {
-                Console.WriteLine("Stack is empty, Deletion is not possible");
-                return;
-            }
-            Console.WriteLine("Value popped is {0} ", this.top.data);
-            this.top = this.top.next;
 
         }
-        internal void IsEmpty()
-        {
-            while (this.top != null)
-            {
-                Peek();
-                Pop();
-            }
-        }
-
     }
 }
 
